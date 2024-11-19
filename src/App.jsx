@@ -113,7 +113,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen p-2 sm:p-6 flex flex-col items-center">
+    <div className="min-h-screen sm:p-6 flex flex-col items-center">
       <div className="flex flex-col sm:flex-row justify-between items-start w-full max-w-6xl mb-4">
         <div className="bg-white shadow-lg rounded-lg sm:p-4 sm:w-1/2 mb-4 sm:mb-0 sm:mr-4">
           <h2 className="text-xs sm:text-sm font-semibold mb-4 text-gray-800">
