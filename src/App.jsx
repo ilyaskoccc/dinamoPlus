@@ -115,7 +115,7 @@ function App() {
   return (
     <div className="min-h-screen p-2 sm:p-6 flex flex-col items-center">
       <div className="flex flex-col sm:flex-row justify-between items-start w-full max-w-6xl mb-4">
-        <div className="bg-white shadow-lg rounded-lg p-4 w-full sm:w-1/2 mb-4 sm:mb-0 sm:mr-4">
+        <div className="bg-white shadow-lg rounded-lg sm:p-4 sm:w-full mb-4 sm:mb-0 sm:mr-4">
           <h2 className="text-xs sm:text-sm font-semibold mb-4 text-gray-800">
             Tablo 1 →{" "}
             <span className="text-red-500">Üretim Operasyon Bildirimleri</span>
@@ -195,7 +195,7 @@ function App() {
       </button>
 
       {showCombinedTable && (
-        <div className="mt-6 bg-white shadow-lg rounded-lg p-4 w-full max-w-6xl">
+        <div className="mt-6 bg-white shadow-lg rounded-lg sm:p-4 sm:w-full max-w-6xl">
           <h2 className="text-xs sm:text-sm font-semibold mb-4 text-gray-800">
             Tablo 3 →{" "}
             <span className="text-green-500">
