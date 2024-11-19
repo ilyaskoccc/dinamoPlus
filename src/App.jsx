@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
 import "./App.css";
+import { tablo1 } from "./tablo1.js";
+import { tablo2 } from "./tablo2.js";
 
 const calculateDuration = (startDate, endDate) => {
   const start = new Date(`2020-05-23T${startDate}`);
@@ -16,65 +18,8 @@ const calculateDuration = (startDate, endDate) => {
 };
 
 function App() {
-  const [table1Data] = useState([
-    {
-      id: "1",
-      startDate: "07:30:00",
-      endDate: "08:30:00",
-      totalHours: "01:00",
-      status: "URETIM",
-      stopInfo: "",
-    },
-    {
-      id: "2",
-      startDate: "08:30:00",
-      endDate: "12:00:00",
-      totalHours: "03:30",
-      status: "URETIM",
-      stopInfo: "",
-    },
-    {
-      id: "3",
-      startDate: "12:00:00",
-      endDate: "13:00:00",
-      totalHours: "01:00",
-      status: "URETIM",
-      stopInfo: "",
-    },
-    {
-      id: "4",
-      startDate: "13:00:00",
-      endDate: "13:45:00",
-      totalHours: "00:45",
-      status: "DURUŞ",
-      stopInfo: "ARIZA",
-    },
-    {
-      id: "5",
-      startDate: "13:45:00",
-      endDate: "17:30:00",
-      totalHours: "03:45",
-      status: "URETIM",
-      stopInfo: "",
-    },
-  ]);
-  const [table2Data] = useState([
-    {
-      startDate_2: "10:00:00",
-      endDate_2: "10:15:00",
-      stopInfo_2: "Çay Molası",
-    },
-    {
-      startDate_2: "12:00:00",
-      endDate_2: "12:30:00",
-      stopInfo_2: "Yemek Molası",
-    },
-    {
-      startDate_2: "15:00:00",
-      endDate_2: "15:15:00",
-      stopInfo_2: "Çay Molası",
-    },
-  ]);
+  const [table1Data] = useState(tablo1);
+  const [table2Data] = useState(tablo2);
   const [combinedData, setCombinedData] = useState([]);
   const [showCombinedTable, setShowCombinedTable] = useState(false);
 
