@@ -120,66 +120,70 @@ function App() {
             Tablo 1 →{" "}
             <span className="text-red-500">Üretim Operasyon Bildirimleri</span>
           </h2>
-          <table className="w-full border border-gray-300 text-xs sm:text-sm">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="border px-2 py-1 text-center">Kayıt No</th>
-                <th className="border px-2 py-1 text-center">Başlangıç</th>
-                <th className="border px-2 py-1 text-center">Bitiş</th>
-                <th className="border px-2 py-1 text-center">
-                  Toplam Süre (Saat)
-                </th>
-                <th className="border px-2 py-1 text-center">Statü</th>
-                <th className="border px-2 py-1 text-center">Duruş Nedeni</th>
-              </tr>
-            </thead>
-            <tbody>
-              {table1Data.map((item, index) => (
-                <tr key={index}>
-                  <td className="border px-2 py-1">{item.id}</td>
-                  <td className="border px-2 py-1">
-                    {format(
-                      new Date(`2020-05-23T${item.startDate}`),
-                      "dd.MM.yyyy HH:mm:ss"
-                    )}
-                  </td>
-                  <td className="border px-2 py-1">
-                    {format(
-                      new Date(`2020-05-23T${item.endDate}`),
-                      "dd.MM.yyyy HH:mm:ss"
-                    )}
-                  </td>
-                  <td className="border px-2 py-1">{item.totalHours}</td>
-                  <td className="border px-2 py-1">{item.status}</td>
-                  <td className="border px-2 py-1">{item.stopInfo}</td>
+          <div className="overflow-x-auto">
+            <table className="w-full border border-gray-300 text-xs sm:text-sm">
+              <thead>
+                <tr className="bg-gray-200">
+                  <th className="border px-2 py-1 text-center">Kayıt No</th>
+                  <th className="border px-2 py-1 text-center">Başlangıç</th>
+                  <th className="border px-2 py-1 text-center">Bitiş</th>
+                  <th className="border px-2 py-1 text-center">
+                    Toplam Süre (Saat)
+                  </th>
+                  <th className="border px-2 py-1 text-center">Statü</th>
+                  <th className="border px-2 py-1 text-center">Duruş Nedeni</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {table1Data.map((item, index) => (
+                  <tr key={index}>
+                    <td className="border px-2 py-1">{item.id}</td>
+                    <td className="border px-2 py-1">
+                      {format(
+                        new Date(`2020-05-23T${item.startDate}`),
+                        "dd.MM.yyyy HH:mm:ss"
+                      )}
+                    </td>
+                    <td className="border px-2 py-1">
+                      {format(
+                        new Date(`2020-05-23T${item.endDate}`),
+                        "dd.MM.yyyy HH:mm:ss"
+                      )}
+                    </td>
+                    <td className="border px-2 py-1">{item.totalHours}</td>
+                    <td className="border px-2 py-1">{item.status}</td>
+                    <td className="border px-2 py-1">{item.stopInfo}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <div className="bg-white shadow-lg rounded-lg p-4 w-full sm:w-1/2">
           <h2 className="text-xs sm:text-base font-semibold mb-4 text-gray-800">
             Tablo 2 → <span className="text-yellow-500">Standart Duruşlar</span>
           </h2>
-          <table className="w-full border border-gray-300 text-xs sm:text-sm">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="border px-2 py-1 text-center">Başlangıç</th>
-                <th className="border px-2 py-1 text-center">Bitiş</th>
-                <th className="border px-2 py-1 text-center">Duruş Nedeni</th>
-              </tr>
-            </thead>
-            <tbody>
-              {table2Data.map((item, index) => (
-                <tr key={index}>
-                  <td className="border px-2 py-1">{item.startDate_2}</td>
-                  <td className="border px-2 py-1">{item.endDate_2}</td>
-                  <td className="border px-2 py-1">{item.stopInfo_2}</td>
+          <div className="overflow-x-auto">
+            <table className="w-full border border-gray-300 text-xs sm:text-sm">
+              <thead>
+                <tr className="bg-gray-200">
+                  <th className="border px-2 py-1 text-center">Başlangıç</th>
+                  <th className="border px-2 py-1 text-center">Bitiş</th>
+                  <th className="border px-2 py-1 text-center">Duruş Nedeni</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {table2Data.map((item, index) => (
+                  <tr key={index}>
+                    <td className="border px-2 py-1">{item.startDate_2}</td>
+                    <td className="border px-2 py-1">{item.endDate_2}</td>
+                    <td className="border px-2 py-1">{item.stopInfo_2}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -198,42 +202,44 @@ function App() {
               Üretim Operasyon Bildirimleri
             </span>
           </h2>
-          <table className="w-full border border-gray-300 text-xs sm:text-sm">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="border px-2 py-1 text-center">Kayıt No</th>
-                <th className="border px-2 py-1 text-center">Başlangıç</th>
-                <th className="border px-2 py-1 text-center">Bitiş</th>
-                <th className="border px-2 py-1 text-center">
-                  Toplam Süre (Saat)
-                </th>
-                <th className="border px-2 py-1 text-center">Statü</th>
-                <th className="border px-2 py-1 text-center">Duruş Nedeni</th>
-              </tr>
-            </thead>
-            <tbody>
-              {combinedData.map((item, index) => (
-                <tr key={index}>
-                  <td className="border px-2 py-1">{item.id}</td>
-                  <td className="border px-2 py-1">
-                    {format(
-                      new Date(`2020-05-23T${item.startDate}`),
-                      "dd.MM.yyyy HH:mm:ss"
-                    )}
-                  </td>
-                  <td className="border px-2 py-1">
-                    {format(
-                      new Date(`2020-05-23T${item.endDate}`),
-                      "dd.MM.yyyy HH:mm:ss"
-                    )}
-                  </td>
-                  <td className="border px-2 py-1">{item.totalHours}</td>
-                  <td className="border px-2 py-1">{item.status}</td>
-                  <td className="border px-2 py-1">{item.stopInfo}</td>
+          <div className="overflow-x-auto">
+            <table className="w-full border border-gray-300 text-xs sm:text-sm">
+              <thead>
+                <tr className="bg-gray-200">
+                  <th className="border px-2 py-1 text-center">Kayıt No</th>
+                  <th className="border px-2 py-1 text-center">Başlangıç</th>
+                  <th className="border px-2 py-1 text-center">Bitiş</th>
+                  <th className="border px-2 py-1 text-center">
+                    Toplam Süre (Saat)
+                  </th>
+                  <th className="border px-2 py-1 text-center">Statü</th>
+                  <th className="border px-2 py-1 text-center">Duruş Nedeni</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {combinedData.map((item, index) => (
+                  <tr key={index}>
+                    <td className="border px-2 py-1">{item.id}</td>
+                    <td className="border px-2 py-1">
+                      {format(
+                        new Date(`2020-05-23T${item.startDate}`),
+                        "dd.MM.yyyy HH:mm:ss"
+                      )}
+                    </td>
+                    <td className="border px-2 py-1">
+                      {format(
+                        new Date(`2020-05-23T${item.endDate}`),
+                        "dd.MM.yyyy HH:mm:ss"
+                      )}
+                    </td>
+                    <td className="border px-2 py-1">{item.totalHours}</td>
+                    <td className="border px-2 py-1">{item.status}</td>
+                    <td className="border px-2 py-1">{item.stopInfo}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
     </div>
