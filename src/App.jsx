@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { format } from "date-fns";
 import "./App.css";
 
-// Function to calculate the duration in "HH:MM" format
 const calculateDuration = (startDate, endDate) => {
   const start = new Date(`2020-05-23T${startDate}`);
   const end = new Date(`2020-05-23T${endDate}`);
@@ -77,7 +77,7 @@ function App() {
   ]);
   const [combinedData, setCombinedData] = useState([]);
   const [showCombinedTable, setShowCombinedTable] = useState(false);
-  // Function to merge production data and standard stops
+
   const mergeData = () => {
     const allData = [
       ...table1Data.map((item) => ({
@@ -94,19 +94,16 @@ function App() {
       })),
     ];
 
-    // Create combined data by splitting production and stop data
     const combined = [];
 
     table1Data.forEach((item) => {
       const productionStart = new Date(`2020-05-23T${item.startDate}`);
       const productionEnd = new Date(`2020-05-23T${item.endDate}`);
 
-      // Check for breaks and split production accordingly
       table2Data.forEach((stop) => {
         const stopStart = new Date(`2020-05-23T${stop.startDate_2}`);
         const stopEnd = new Date(`2020-05-23T${stop.endDate_2}`);
 
-        // If the production time overlaps with a stop time, split accordingly
         if (productionStart < stopEnd && productionEnd > stopStart) {
           if (productionStart < stopStart) {
             combined.push({
@@ -140,7 +137,6 @@ function App() {
         }
       });
 
-      // If no break, keep the full production time
       if (
         combined.filter((entry) => entry.type === "production").length === 0
       ) {
@@ -148,7 +144,6 @@ function App() {
       }
     });
 
-    // Manually add the "ARIZA" row if not already included
     table1Data.forEach((item) => {
       if (
         item.stopInfo === "ARIZA" &&
@@ -158,7 +153,6 @@ function App() {
       }
     });
 
-    // Sort by start date
     combined.sort((a, b) => {
       const dateA = new Date(`2020-05-23T${a.startDate}`);
       const dateB = new Date(`2020-05-23T${b.startDate}`);
@@ -198,8 +192,18 @@ function App() {
               {table1Data.map((item, index) => (
                 <tr key={index}>
                   <td className="border px-4 py-2">{item.id}</td>
-                  <td className="border px-4 py-2">{item.startDate}</td>
-                  <td className="border px-4 py-2">{item.endDate}</td>
+                  <td className="border px-4 py-2">
+                    {format(
+                      new Date(`2020-05-23T${item.startDate}`),
+                      "dd.MM.yyyy HH:mm:ss"
+                    )}
+                  </td>
+                  <td className="border px-4 py-2">
+                    {format(
+                      new Date(`2020-05-23T${item.endDate}`),
+                      "dd.MM.yyyy HH:mm:ss"
+                    )}
+                  </td>
                   <td className="border px-4 py-2">{item.totalHours}</td>
                   <td className="border px-4 py-2">{item.status}</td>
                   <td className="border px-4 py-2">{item.stopInfo}</td>
@@ -216,17 +220,17 @@ function App() {
           <table className="w-full border border-gray-300 text-sm">
             <thead>
               <tr className="bg-gray-200">
-                <th className="border px-2 py-2 text-center">Başlangıç</th>
-                <th className="border px-2 py-2 text-center">Bitiş</th>
-                <th className="border px-2 py-2 text-center">Duruş Nedeni</th>
+                <th className="border px-4 py-2 text-center">Başlangıç</th>
+                <th className="border px-4 py-2 text-center">Bitiş</th>
+                <th className="border px-4 py-2 text-center">Duruş Nedeni</th>
               </tr>
             </thead>
             <tbody>
               {table2Data.map((item, index) => (
                 <tr key={index}>
-                  <td className="border px-2 py-2">{item.startDate_2}</td>
-                  <td className="border px-2 py-2">{item.endDate_2}</td>
-                  <td className="border px-2 py-2">{item.stopInfo_2}</td>
+                  <td className="border px-4 py-2">{item.startDate_2}</td>
+                  <td className="border px-4 py-2">{item.endDate_2}</td>
+                  <td className="border px-4 py-2">{item.stopInfo_2}</td>
                 </tr>
               ))}
             </tbody>
@@ -236,20 +240,20 @@ function App() {
 
       <button
         onClick={handleButtonClick}
-        className="bg-blue-600 text-white font-semibold px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
+        className="mt-8 py-2 px-4 bg-blue-600 text-white rounded-lg"
       >
         Tabloyu Göster
       </button>
 
       {showCombinedTable && (
-        <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-6xl mt-8">
-          <h2 className="text-xl font-semibold mb-4 text-gray-800">
+        <div className="mt-8 bg-white shadow-lg rounded-lg p-6 w-full max-w-6xl">
+          <h2 className="text-base font-semibold mb-4 text-gray-800">
             Tablo 3 →{" "}
             <span className="text-green-500">
               Üretim Operasyon Bildirimleri
             </span>
           </h2>
-          <table className="w-full border border-gray-300">
+          <table className="w-full border border-gray-300 text-sm">
             <thead>
               <tr className="bg-gray-200">
                 <th className="border px-4 py-2 text-center">Kayıt No</th>
@@ -266,8 +270,18 @@ function App() {
               {combinedData.map((item, index) => (
                 <tr key={index}>
                   <td className="border px-4 py-2">{item.id}</td>
-                  <td className="border px-4 py-2">{item.startDate}</td>
-                  <td className="border px-4 py-2">{item.endDate}</td>
+                  <td className="border px-4 py-2">
+                    {format(
+                      new Date(`2020-05-23T${item.startDate}`),
+                      "dd.MM.yyyy HH:mm:ss"
+                    )}
+                  </td>
+                  <td className="border px-4 py-2">
+                    {format(
+                      new Date(`2020-05-23T${item.endDate}`),
+                      "dd.MM.yyyy HH:mm:ss"
+                    )}
+                  </td>
                   <td className="border px-4 py-2">{item.totalHours}</td>
                   <td className="border px-4 py-2">{item.status}</td>
                   <td className="border px-4 py-2">{item.stopInfo}</td>
