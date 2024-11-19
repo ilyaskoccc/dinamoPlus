@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
-import "./App.css";
 import { tablo1 } from "./tablo1.js";
 import { tablo2 } from "./tablo2.js";
+import "./App.css";
 
 const calculateDuration = (startDate, endDate) => {
   const start = new Date(`2020-05-23T${startDate}`);
@@ -113,69 +113,69 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen p-8 flex flex-col items-center">
-      <div className="flex justify-between items-start w-full max-w-6xl mb-8">
-        <div className="bg-white shadow-lg rounded-lg p-6 w-1/2 mr-4">
-          <h2 className="text-base font-semibold mb-4 text-gray-800">
+    <div className="min-h-screen p-2 sm:p-6 flex flex-col items-center">
+      <div className="flex flex-col sm:flex-row justify-between items-start w-full max-w-6xl mb-4">
+        <div className="bg-white shadow-lg rounded-lg p-4 w-full sm:w-1/2 mb-4 sm:mb-0 sm:mr-4">
+          <h2 className="text-xs sm:text-base font-semibold mb-4 text-gray-800">
             Tablo 1 →{" "}
             <span className="text-red-500">Üretim Operasyon Bildirimleri</span>
           </h2>
-          <table className="w-full border border-gray-300 text-sm">
+          <table className="w-full border border-gray-300 text-xs sm:text-sm">
             <thead>
               <tr className="bg-gray-200">
-                <th className="border px-4 py-2 text-center">Kayıt No</th>
-                <th className="border px-4 py-2 text-center">Başlangıç</th>
-                <th className="border px-4 py-2 text-center">Bitiş</th>
-                <th className="border px-4 py-2 text-center">
+                <th className="border px-2 py-1 text-center">Kayıt No</th>
+                <th className="border px-2 py-1 text-center">Başlangıç</th>
+                <th className="border px-2 py-1 text-center">Bitiş</th>
+                <th className="border px-2 py-1 text-center">
                   Toplam Süre (Saat)
                 </th>
-                <th className="border px-4 py-2 text-center">Statü</th>
-                <th className="border px-4 py-2 text-center">Duruş Nedeni</th>
+                <th className="border px-2 py-1 text-center">Statü</th>
+                <th className="border px-2 py-1 text-center">Duruş Nedeni</th>
               </tr>
             </thead>
             <tbody>
               {table1Data.map((item, index) => (
                 <tr key={index}>
-                  <td className="border px-4 py-2">{item.id}</td>
-                  <td className="border px-4 py-2">
+                  <td className="border px-2 py-1">{item.id}</td>
+                  <td className="border px-2 py-1">
                     {format(
                       new Date(`2020-05-23T${item.startDate}`),
                       "dd.MM.yyyy HH:mm:ss"
                     )}
                   </td>
-                  <td className="border px-4 py-2">
+                  <td className="border px-2 py-1">
                     {format(
                       new Date(`2020-05-23T${item.endDate}`),
                       "dd.MM.yyyy HH:mm:ss"
                     )}
                   </td>
-                  <td className="border px-4 py-2">{item.totalHours}</td>
-                  <td className="border px-4 py-2">{item.status}</td>
-                  <td className="border px-4 py-2">{item.stopInfo}</td>
+                  <td className="border px-2 py-1">{item.totalHours}</td>
+                  <td className="border px-2 py-1">{item.status}</td>
+                  <td className="border px-2 py-1">{item.stopInfo}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        <div className="bg-white shadow-lg rounded-lg p-6 w-1/2 ml-4">
-          <h2 className="text-base font-semibold mb-4 text-gray-800">
+        <div className="bg-white shadow-lg rounded-lg p-4 w-full sm:w-1/2">
+          <h2 className="text-xs sm:text-base font-semibold mb-4 text-gray-800">
             Tablo 2 → <span className="text-yellow-500">Standart Duruşlar</span>
           </h2>
-          <table className="w-full border border-gray-300 text-sm">
+          <table className="w-full border border-gray-300 text-xs sm:text-sm">
             <thead>
               <tr className="bg-gray-200">
-                <th className="border px-4 py-2 text-center">Başlangıç</th>
-                <th className="border px-4 py-2 text-center">Bitiş</th>
-                <th className="border px-4 py-2 text-center">Duruş Nedeni</th>
+                <th className="border px-2 py-1 text-center">Başlangıç</th>
+                <th className="border px-2 py-1 text-center">Bitiş</th>
+                <th className="border px-2 py-1 text-center">Duruş Nedeni</th>
               </tr>
             </thead>
             <tbody>
               {table2Data.map((item, index) => (
                 <tr key={index}>
-                  <td className="border px-4 py-2">{item.startDate_2}</td>
-                  <td className="border px-4 py-2">{item.endDate_2}</td>
-                  <td className="border px-4 py-2">{item.stopInfo_2}</td>
+                  <td className="border px-2 py-1">{item.startDate_2}</td>
+                  <td className="border px-2 py-1">{item.endDate_2}</td>
+                  <td className="border px-2 py-1">{item.stopInfo_2}</td>
                 </tr>
               ))}
             </tbody>
@@ -185,51 +185,51 @@ function App() {
 
       <button
         onClick={handleButtonClick}
-        className="mt-8 py-2 px-4 bg-blue-600 text-white rounded-lg"
+        className="mt-6 py-2 px-4 bg-blue-600 text-white rounded-lg text-xs sm:text-sm"
       >
         Tabloyu Göster
       </button>
 
       {showCombinedTable && (
-        <div className="mt-8 bg-white shadow-lg rounded-lg p-6 w-full max-w-6xl">
-          <h2 className="text-base font-semibold mb-4 text-gray-800">
+        <div className="mt-6 bg-white shadow-lg rounded-lg p-4 w-full max-w-6xl">
+          <h2 className="text-xs sm:text-base font-semibold mb-4 text-gray-800">
             Tablo 3 →{" "}
             <span className="text-green-500">
               Üretim Operasyon Bildirimleri
             </span>
           </h2>
-          <table className="w-full border border-gray-300 text-sm">
+          <table className="w-full border border-gray-300 text-xs sm:text-sm">
             <thead>
               <tr className="bg-gray-200">
-                <th className="border px-4 py-2 text-center">Kayıt No</th>
-                <th className="border px-4 py-2 text-center">Başlangıç</th>
-                <th className="border px-4 py-2 text-center">Bitiş</th>
-                <th className="border px-4 py-2 text-center">
+                <th className="border px-2 py-1 text-center">Kayıt No</th>
+                <th className="border px-2 py-1 text-center">Başlangıç</th>
+                <th className="border px-2 py-1 text-center">Bitiş</th>
+                <th className="border px-2 py-1 text-center">
                   Toplam Süre (Saat)
                 </th>
-                <th className="border px-4 py-2 text-center">Statü</th>
-                <th className="border px-4 py-2 text-center">Duruş Nedeni</th>
+                <th className="border px-2 py-1 text-center">Statü</th>
+                <th className="border px-2 py-1 text-center">Duruş Nedeni</th>
               </tr>
             </thead>
             <tbody>
               {combinedData.map((item, index) => (
                 <tr key={index}>
-                  <td className="border px-4 py-2">{item.id}</td>
-                  <td className="border px-4 py-2">
+                  <td className="border px-2 py-1">{item.id}</td>
+                  <td className="border px-2 py-1">
                     {format(
                       new Date(`2020-05-23T${item.startDate}`),
                       "dd.MM.yyyy HH:mm:ss"
                     )}
                   </td>
-                  <td className="border px-4 py-2">
+                  <td className="border px-2 py-1">
                     {format(
                       new Date(`2020-05-23T${item.endDate}`),
                       "dd.MM.yyyy HH:mm:ss"
                     )}
                   </td>
-                  <td className="border px-4 py-2">{item.totalHours}</td>
-                  <td className="border px-4 py-2">{item.status}</td>
-                  <td className="border px-4 py-2">{item.stopInfo}</td>
+                  <td className="border px-2 py-1">{item.totalHours}</td>
+                  <td className="border px-2 py-1">{item.status}</td>
+                  <td className="border px-2 py-1">{item.stopInfo}</td>
                 </tr>
               ))}
             </tbody>
