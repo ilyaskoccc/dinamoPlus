@@ -1,0 +1,42 @@
+export const tablo1 = [
+  {
+    id: "1",
+    startDate: "23.05.2020 07:30:00",
+    endDate: "23.05.2020 08:30:00",
+    totalHours: "01:00",
+    status: "URETIM",
+    stopInfo: "",
+  },
+  {
+    id: "2",
+    startDate: "23.05.2020 08:30:00",
+    endDate: "23.05.2020 12:00:00",
+    totalHours: "03:30",
+    status: "URETIM",
+    stopInfo: "",
+  },
+  {
+    id: "3",
+    startDate: "23.05.2020 12:00:00",
+    endDate: "23.05.2020 13:00:00",
+    totalHours: "01:00",
+    status: "URETIM",
+    stopInfo: "",
+  },
+  {
+    id: "4",
+    startDate: "23.05.2020 13:00:00",
+    endDate: "23.05.2020 13:45:00",
+    totalHours: "00:45",
+    status: "DURUŞ",
+    stopInfo: "ARIZA",
+  },
+  {
+    id: "5",
+    startDate: "23.05.2020 13:45:00",
+    endDate: "23.05.2020 17:30:00",
+    totalHours: "03:45",
+    status: "URETIM",
+    stopInfo: "",
+  },
+];
