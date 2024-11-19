@@ -148,6 +148,16 @@ function App() {
       }
     });
 
+    // Manually add the "ARIZA" row if not already included
+    table1Data.forEach((item) => {
+      if (
+        item.stopInfo === "ARIZA" &&
+        !combined.some((entry) => entry.id === item.id)
+      ) {
+        combined.push(item);
+      }
+    });
+
     // Sort by start date
     combined.sort((a, b) => {
       const dateA = new Date(`2020-05-23T${a.startDate}`);
